@@ -2,6 +2,10 @@ namespace bookshop.learning;
 
 using { Currency, managed } from '@sap/cds/common';
 
+type Genre: String enum{
+  Mystery; Fiction; Drama;
+}
+
 entity Books : managed {
   key ID   : Integer;
   title    : localized String(111);
@@ -9,6 +13,7 @@ entity Books : managed {
   author   : Association to Authors;
   stock    : Integer;
   price    : Decimal(9,2);
+  genre    : Genre;
   currency : Currency;
 }
 
