@@ -37,3 +37,13 @@ entity OrderItems{
         amount  :   Integer;
 }
 
+entity Proposal {
+	key ID: UUID;
+	budgets: Composition of many Budget on budgets.proposal = $self;
+}
+
+entity Budget {
+	key proposal: Association to Proposal;
+	key ID: String(2);
+}
+
